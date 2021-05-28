@@ -1,6 +1,6 @@
 {
   "name": "typewriter-vue",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": false,
   "main": "dist/typewriter.umd.js",
   "module": "dist/typewriter.esm.js",
@@ -18,11 +18,9 @@
     "build:es": "rollup --config ./build/rollup.config.js --format es --file dist/typewriter.esm.js",
     "build:unpkg": "rollup --config ./build/rollup.config.js --format iife --file dist/typewriter.min.js"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
