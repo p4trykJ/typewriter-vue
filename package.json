@@ -8,6 +8,11 @@
   "browser": {
     "./sfc": "src/typewriter.vue"
   },
+  "files": [
+    "dist",
+    "src/components/Typewriter.vue",
+    "index.js"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

@@ -1,9 +1,0 @@
-build
-node_modules
-tests
-public
-.browserslistrc
-.eslintrc.js
-.gitignore
-babel.config.js
-jest.config.js
