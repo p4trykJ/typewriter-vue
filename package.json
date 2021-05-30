@@ -1,7 +1,28 @@
 {
   "name": "typewriter-vue",
-  "version": "0.5.2",
+  "version": "0.5.9",
   "private": false,
+  "description": "Typing effect component for Vue.js",
+  "keywords": [
+    "vue",
+    "vue 2",
+    "vue.js",
+    "typewriter",
+    "typing",
+    "typer",
+    "typewriting",
+    "animation"
+  ],
+  "license": "MIT",
+  "author": "Patryk Jezierski <wacool00@gmail.com>",
+  "homepage": "https://github.com/p4trykJ/typewriter-vue#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p4trykJ/typewriter-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/p4trykJ/typewriter-vue/issues"
+  },
   "main": "dist/typewriter.umd.js",
   "module": "dist/typewriter.esm.js",
   "unpkg": "dist/typewriter.min.js",
