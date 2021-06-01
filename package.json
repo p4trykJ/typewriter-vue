@@ -41,7 +41,8 @@
     "lint": "vue-cli-service lint",
     "build:rollup": "npm run build:umd & npm run build:es & npm run build:unpkg --minify true",
     "build:umd": "rollup --config ./build/rollup.config.js --format umd --file dist/typewriter.umd.js",
-    "build:es": "rollup --config ./build/rollup.config.js --format es --file dist/typewriter.esm.js"
+    "build:es": "rollup --config ./build/rollup.config.js --format es --file dist/typewriter.esm.js",
+    "build:unpkg": "rollup --config ./build/rollup.config.js --format iife --file dist/typewriter.min.js"
   },
   "devDependencies": {
     "vue": "^2.6.11",
