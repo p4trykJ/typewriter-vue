@@ -5,14 +5,16 @@
 </template>
 
 <script>
+const assert = (condition, message) => {
+  if (!condition) {
+    throw new Error(message || "Assertion failed");
+  }
+};
+
 export default {
   name: "Typewriter",
   props: {
-    interval: {
-      type: Number,
-      default: 75,
-    },
-    replaceInterval: {
+    typeInterval: {
       type: Number,
       default: 75,
     },
@@ -20,14 +22,23 @@ export default {
       type: Array,
       default: () => [],
     },
+    replaceInterval: {
+      type: Number,
+      default: 2000,
+    },
   },
   mounted() {
     this.init();
   },
   methods: {
     async init() {
+      const { innerHTML, innerText } = this.$el;
+      this.$el.innerHTML =
+        innerHTML.trim() === innerText
+          ? `<span>${innerHTML}</span>`
+          : innerHTML;
       await this.typewriter(this.$el.innerHTML);
-      if (this.replace?.length) {
+      if (this.replace.length) {
         setTimeout(() => {
           this.startReplacing();
         }, this.replaceInterval);
@@ -41,7 +52,7 @@ export default {
           index = current === "<" ? str.indexOf(">", index) + 1 : ++index;
           this.$el.innerHTML = str.substr(0, index);
           if (index < str.length - 1) {
-            setTimeout(f, this.interval, index);
+            setTimeout(f, this.typeInterval, index);
             return;
           }
           resolve();
@@ -56,7 +67,7 @@ export default {
           elementCopy.innerHTML = elementCopy.innerHTML.slice(0, index);
           index--;
           if (start <= index) {
-            setTimeout(f, this.interval, index);
+            setTimeout(f, this.typeInterval, index);
             return;
           }
           resolve();
@@ -74,7 +85,7 @@ export default {
             str[index]
           );
           if (index < str.length - 1) {
-            setTimeout(f, this.interval, ++index, ++start);
+            setTimeout(f, this.typeInterval, ++index, ++start);
             return;
           }
           resolve();
@@ -85,29 +96,40 @@ export default {
     insert(text, index, newChar) {
       return text.substring(0, index) + newChar + text.substr(index);
     },
+    async replaceLastWord(to) {
+      const lastWord = this.$el.innerText.split(" ").pop();
+      assert(lastWord, "Component`s current innerHTML is empty");
+      await this.replaceText({ from: lastWord, to });
+    },
     async replaceText(changed) {
-      if (!changed) {
-        throw new Error("Changed parameter is needed");
-      }
+      assert(changed, "Changed parameter is needed");
       const { from, to } = changed;
       const str = this.$el.innerHTML;
       const regex = new RegExp("\\b" + from + "\\b");
-      const { index } = str.match(regex);
+      const match = str.match(regex);
+      assert(
+        match,
+        `Substring '${from}' not found in component\` current innerHTML`
+      );
+      const { index } = match;
       await this.removeString(index, index + from.length);
       await this.addString(index, to);
     },
-    startReplacing(replace = this.replace, interval = this.replaceInterval) {
+    startReplacing(
+      replace = this.replace,
+      replaceInterval = this.replaceInterval
+    ) {
       if (!replace) {
-        throw new Error("replace parameter is needed");
+        throw new Error("Replace parameter is needed");
       }
       if (!replace) {
-        throw new Error("replace parameter has 0 length");
+        throw new Error("Replace parameter has 0 length");
       }
       return new Promise((resolve) => {
         const func = async (index) => {
           await this.replaceText(replace[index]);
           if (index < replace.length - 1) {
-            setTimeout(func, interval, ++index);
+            setTimeout(func, replaceInterval, ++index);
             return;
           }
           resolve();
@@ -131,7 +153,7 @@ export default {
 }
 
 .content *:last-child:after {
-  height: 110%;
+  font-size: calc(1em + 2px);
   content: "|";
   animation: blink 0.75s step-end infinite;
 }
