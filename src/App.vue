@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <typewriter>
+    <div>
+      <button @click="changeVueToAngular">change Vue To Angular</button>
+    </div>
+    <div>
+      <button @click="changeLastWord">change Last Word</button>
+    </div>
+    <typewriter ref="typewriter" :start-delay="2000" class="tp">
       <div>Typewriter Vue</div>
     </typewriter>
   </div>
@@ -11,11 +17,24 @@ import Typewriter from "./components/Typewriter.vue";
 
 export default {
   name: "App",
-  components: { Typewriter },
+  components: {
+    Typewriter,
+  },
+  methods: {
+    changeVueToAngular() {
+      this.$refs.typewriter.replaceText({ from: "Vue", to: "Angular" });
+    },
+    changeLastWord() {
+      this.$refs.typewriter.replaceLastWord("React?");
+    },
+  },
 };
 </script>
 
 <style>
+/* .tp *:last-child:after {
+  font-size: calc(1em + 20px);
+} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

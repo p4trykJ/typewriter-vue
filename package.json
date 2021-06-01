@@ -42,10 +42,15 @@
     "build:rollup": "npm run build:umd & npm run build:es & npm run build:unpkg --minify true",
     "build:umd": "rollup --config ./build/rollup.config.js --format umd --file dist/typewriter.umd.js",
     "build:es": "rollup --config ./build/rollup.config.js --format es --file dist/typewriter.esm.js",
-    "build:unpkg": "rollup --config ./build/rollup.config.js --format iife --file dist/typewriter.min.js"
+    "build:unpkg": "rollup --config ./build/rollup.config.js --format iife --file dist/typewriter.min.js",
+    "build:docs": "npm run docs:api & npm run docs:vuepress",
+    "docs:dev": "vuepress dev docs",
+    "docs:api": "vuedoc.md ./src/components/Typewriter.vue --section 'API' --output ./docs/README.md",
+    "docs:vuepress": "vuepress build docs"
   },
   "devDependencies": {
     "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
@@ -54,17 +59,19 @@
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
-    "vue-template-compiler": "^2.6.11",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.2.1",
-    "cz-conventional-changelog": "^3.3.0",
     "rollup": "^1.17.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-vue": "^6.0.0",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^11.1.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-vue": "^5.0.1"
+    "vuepress": "^1.4.1",
+    "@vuedoc/md": "^3.2.0",
+    "@vuedoc/parser": "^3.3.0"
   },
   "config": {
     "commitizen": {

@@ -14,14 +14,32 @@ const assert = (condition, message) => {
 export default {
   name: "Typewriter",
   props: {
+    /**
+     *  Time to wait before typing first character (ms).
+     */
+    startDelay: {
+      type: Number,
+      default: 0,
+    },
+    /**
+     * Interval between entering letters (ms).
+     */
     typeInterval: {
       type: Number,
       default: 75,
     },
+    /**
+     * Array of objects with keys:
+     *  - from - @type {String}  to be replaced (has to be present in currently displayed text),
+     *  - to - @type {String} that will replace 'from' text
+     */
     replace: {
       type: Array,
       default: () => [],
     },
+    /**
+     * Interval between replacing  in (ms).
+     */
     replaceInterval: {
       type: Number,
       default: 2000,
