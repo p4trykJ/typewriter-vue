@@ -34,8 +34,8 @@ jobs:
         run: npm run build:rollup
 
       - name: publish to npm
-        run:|
+        run: |
           npm config set //registry.npmjs.org/:_authToken ${NPM_AUTH_TOKEN}
           npm publish --ignore-scripts
         env:
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
