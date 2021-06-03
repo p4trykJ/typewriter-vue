@@ -1,8 +1,12 @@
 # typewriter-vue
 
-<!-- ![Build Status](https://circleci.com/gh/shentao/vue-multiselect/tree/2.0.svg?style=shield&circle-token=5c931ff28fd12587610f835472becdd514d09cef) -->
+![npm](https://img.shields.io/npm/dw/typewriter-vue)
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/p4trykJ/typewriter-vue/npm)
 
 ![npm](https://img.shields.io/npm/v/typewriter-vue)
+
+![npm bundle size](https://img.shields.io/bundlephobia/min/typewriter-vue)
 
 Typing effect component for Vue.js
 
