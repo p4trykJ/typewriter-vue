@@ -163,14 +163,14 @@ export default {
 @keyframes blink {
   from,
   to {
-    color: black;
+    opacity: 0;
   }
   50% {
-    color: transparent;
+    opacity: 1;
   }
 }
 
-.content *:last-child:after {
+.content *:last-child::after {
   font-size: calc(1em + 2px);
   content: "|";
   animation: blink 0.75s step-end infinite;

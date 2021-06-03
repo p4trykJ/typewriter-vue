@@ -6,7 +6,7 @@
     <div>
       <button @click="changeLastWord">change Last Word</button>
     </div>
-    <typewriter ref="typewriter" :start-delay="2000" class="tp">
+    <typewriter ref="typewriter" :start-delay="2000">
       <div>Typewriter Vue</div>
     </typewriter>
   </div>
@@ -32,9 +32,6 @@ export default {
 </script>
 
 <style>
-/* .tp *:last-child:after {
-  font-size: calc(1em + 20px);
-} */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
