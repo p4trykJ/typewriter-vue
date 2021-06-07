@@ -4,7 +4,7 @@
 
 Typing effect component for Vue.js
 
-![Example](./example.gif)
+![Example](https://github.com/p4trykJ/typewriter-vue/blob/master/docs/example.gif)
 
 ### Features & characteristics:
 
