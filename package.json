@@ -1,6 +1,6 @@
 {
   "name": "typewriter-vue",
-  "version": "0.5.14",
+  "version": "0.5.15",
   "private": false,
   "description": "Typing effect component for Vue.js",
   "keywords": [
