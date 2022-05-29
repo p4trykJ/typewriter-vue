@@ -1,6 +1,6 @@
 {
   "name": "typewriter-vue",
-  "version": "0.5.18",
+  "version": "0.5.19",
   "private": false,
   "description": "Typing effect component for Vue.js",
   "keywords": [
@@ -23,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/p4trykJ/typewriter-vue/issues"
   },
-  "types": "./types/index.d.ts",
   "main": "dist/typewriter.umd.js",
   "module": "dist/typewriter.esm.js",
   "unpkg": "dist/typewriter.min.js",
@@ -33,8 +32,10 @@
   "files": [
     "dist",
     "src/components/Typewriter.vue",
-    "index.js"
+    "index.js",
+    "types"
   ],
+  "types": "./types/index.d.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
